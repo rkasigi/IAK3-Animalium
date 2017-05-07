@@ -15,6 +15,13 @@
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/logo" />
 
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/buttonEnter"
+        android:hint="@string/editTextNameHint" />
+
     <Button
         android:id="@+id/buttonEnter"
         android:layout_width="match_parent"
@@ -22,5 +29,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
-        android:text="Masuk" />
+        android:text="@string/Enter"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 </RelativeLayout>
