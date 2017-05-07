@@ -2,5 +2,6 @@
     <string name="app_name">Animalium</string>
     <string name="Enter">Masuk</string>
     <string name="editTextNameHint">Masukkan nama</string>
+    <string name="ok">OK</string>
 
 </resources>

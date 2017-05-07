@@ -46,7 +46,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.MyViewHold
         holder.layout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, animalModel.getNameEn(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, String.format("Bahasa Inggris dari %1$s adalah %2$s", animalModel.getNameId(), animalModel.getNameEn()), Toast.LENGTH_SHORT).show();
             }
         });
     }

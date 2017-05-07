@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String loginName;
+
     RecyclerView recyclerView;
     List<AnimalModel> animalModelList;
     AnimalAdapter animalAdapter;
@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loginName = getIntent().getStringExtra("loginName");
-        ((TextView)findViewById(R.id.textViewTitleDisplay)).setText("Hallo " + loginName);
+
+        String loginName = getIntent().getStringExtra("loginName");
+        ((TextView)findViewById(R.id.textViewTitleDisplay)).setText("Selamat datang " + loginName);
 
         //Toast.makeText(this, loginName, Toast.LENGTH_LONG).show();
 
@@ -42,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
     private void prepareData() {
 
         animalModelList.add(new AnimalModel("Banteng", "Bull", R.drawable.anbull));
-        animalModelList.add(new AnimalModel("Anak Ayam", "Chick", R.drawable.anchick));
+        animalModelList.add(new AnimalModel("Ayam", "Chicken", R.drawable.anchick));
+        animalModelList.add(new AnimalModel("Kepiting", "Crab", R.drawable.ancrab));
+        animalModelList.add(new AnimalModel("Rubah", "Fox", R.drawable.anfox));
+        animalModelList.add(new AnimalModel("Landak", "Hedgehong", R.drawable.anhedgehog));
+        animalModelList.add(new AnimalModel("Kuda Nil", "Hippopotamus", R.drawable.anhippopotamus));
+        animalModelList.add(new AnimalModel("Koala", "Koala", R.drawable.ankoala));
+        animalModelList.add(new AnimalModel("Kukang", "Lemur", R.drawable.anlemur));
+        animalModelList.add(new AnimalModel("Babi", "Pig", R.drawable.anpig));
+        animalModelList.add(new AnimalModel("Harimau", "Tiger", R.drawable.antiger));
+        animalModelList.add(new AnimalModel("Ikan Paus", "Whale", R.drawable.anwhale));
+        animalModelList.add(new AnimalModel("Zebra", "Zebra", R.drawable.anzebra));
     }
 }

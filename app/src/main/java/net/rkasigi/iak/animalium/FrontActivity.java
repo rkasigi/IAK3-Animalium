@@ -1,5 +1,6 @@
 package net.rkasigi.iak.animalium;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,25 +10,43 @@ import android.widget.EditText;
 
 public class FrontActivity extends AppCompatActivity {
 
+    private EditText textName;
+    private Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front);
 
-        final EditText textName = (EditText) findViewById(R.id.editTextName);
         Button buttonMasuk = (Button) findViewById(R.id.buttonEnter);
-        final Intent i = new Intent(this, MainActivity.class);
+        textName = (EditText) findViewById(R.id.editTextName);
+        intent = new Intent(this, MainActivity.class);
 
-
-        buttonMasuk.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                String name = textName.getText().toString();
-                i.putExtra("loginName", name);
-                startActivity(i);
-                finish();
-            }
-        });
+        textName.requestFocus();
+        buttonMasuk.setOnClickListener(onButttonMasukClick);
     }
+
+    private View.OnClickListener onButttonMasukClick = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+
+            String name = textName.getText().toString();
+
+            if(name.isEmpty()) {
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle("Informasi")
+                        .setMessage("Kolom nama tidak boleh kosong!")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(R.string.ok, null)
+                        .show();
+            } else {
+                intent.putExtra("loginName", name);
+                startActivity(intent);
+                finish();
+
+            }
+
+        }
+    };
 }
